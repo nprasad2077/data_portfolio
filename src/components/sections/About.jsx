@@ -5,20 +5,20 @@ export function About() {
   const features = [
     {
       icon: '🎯',
-      title: 'Strategic Design',
-      description: 'Creating solutions that align with business goals',
+      title: 'Data Engineering',
+      description: 'Building efficient data pipelines and solutions',
       bgColor: 'bg-blue-100'
     },
     {
       icon: '💡',
-      title: 'User-Centered',
-      description: 'Focusing on real user needs and pain points',
+      title: 'Full Stack Development',
+      description: 'Creating end-to-end web applications',
       bgColor: 'bg-green-100'
     },
     {
       icon: '✨',
-      title: 'Pixel Perfect',
-      description: 'Attention to detail in every design decision',
+      title: 'System Optimization',
+      description: 'Improving performance and efficiency',
       bgColor: 'bg-purple-100'
     }
   ];
@@ -43,10 +43,9 @@ export function About() {
             <div className="space-y-6">
               <h2 className="text-4xl md:text-5xl font-bold">About Me</h2>
               <p className="text-xl text-gray-600">
-                I'm a product designer with 6+ years of experience creating
-                digital products that solve real problems. My approach combines
-                user-centered design principles with strategic thinking to
-                deliver meaningful experiences.
+                Growth-oriented data enthusiast passionate about web development and system optimization. 
+                Skilled in writing clear, concise, and easily maintainable code. 
+                Seeking opportunities to expand expertise in data applications and software development.
               </p>
               
               {/* Features */}
