@@ -78,7 +78,7 @@ export function Contact() {
       <div className="container mx-auto px-6">
         <FadeIn>
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
-            Let's Work Together
+            Let's Connect
           </h2>
         </FadeIn>
 
@@ -88,27 +88,26 @@ export function Contact() {
               <h3 className="text-2xl font-bold">Get in Touch</h3>
               <p className="text-gray-600 text-lg leading-relaxed">
                 I'm always interested in hearing about new projects and
-                opportunities. Whether you have a question or just want to say
-                hi, I'll try my best to get back to you!
+                opportunities. Feel free to reach out! 😄💻💾
               </p>
 
               <div className="space-y-6">
                 <ContactInfo
                   icon={<Mail className="w-5 h-5" />}
                   title="Email"
-                  content="sarah.anderson@example.com"
-                  href="mailto:sarah.anderson@example.com"
+                  content="nprasad2077@gmail.com"
+                  href="mailto:nprasad2077@gmail.com"
                 />
                 <ContactInfo
                   icon={<Phone className="w-5 h-5" />}
                   title="Phone"
-                  content="+1 (555) 123-4567"
-                  href="tel:+15551234567"
+                  content="+1 (832) 465-5585"
+                  href="tel:+18324655585"
                 />
                 <ContactInfo
                   icon={<MapPin className="w-5 h-5" />}
                   title="Location"
-                  content="San Francisco, CA"
+                  content="Houston, TX"
                 />
               </div>
             </div>
