@@ -1,28 +1,41 @@
 // src/components/sections/Skills.jsx
 const skills = {
-  'Design Tools': [
-    { name: 'Figma', level: 95 },
-    { name: 'Adobe XD', level: 85 },
-    { name: 'Sketch', level: 80 },
-    { name: 'Adobe Photoshop', level: 90 },
-    { name: 'Adobe Illustrator', level: 85 },
+  'Languages': [
+    { name: 'SQL', level: 90 },
+    { name: 'Python', level: 85 },
+    { name: 'JavaScript', level: 85 },
+    { name: 'TypeScript', level: 80 },
+    { name: 'HTML/CSS', level: 85 },
   ],
-  'UX/UI Design': [
-    { name: 'Wireframing', level: 90 },
-    { name: 'Prototyping', level: 85 },
-    { name: 'User Research', level: 80 },
-    { name: 'Interaction Design', level: 85 },
-    { name: 'Accessibility', level: 75 },
+  'Frameworks & Technologies': [
+    { name: 'React', level: 85 },
+    { name: 'Django', level: 80 },
+    { name: 'FastAPI', level: 75 },
+    { name: '.NET Web API', level: 75 },
+    { name: 'Express.js', level: 80 },
+    { name: 'Node.js', level: 80 },
+    { name: 'Tailwind', level: 85 },
+    { name: 'REST API', level: 85 },
   ],
-  'Tools & Collaboration': [
-    { name: 'Miro', level: 85 },
-    { name: 'Notion', level: 80 },
-    { name: 'Slack', level: 90 },
-    { name: 'Jira', level: 75 },
-  ],
+  'Tools & Infrastructure': [
+    { name: 'Docker', level: 80 },
+    { name: 'AWS Services', level: 75 },
+    { name: 'PostgreSQL', level: 90 },
+    { name: 'Microsoft SQL Server', level: 85 },
+    { name: 'Git/Azure DevOps', level: 85 },
+    { name: 'DBT-core', level: 80 },
+    { name: 'Power BI', level: 75 },
+    { name: 'SSRS/SSIS', level: 80 },
+  ]
 };
 
-function SkillBar({ name, level }) {
+function SkillBar({ name, level, category }) {
+  const barColors = {
+    'Languages': 'bg-blue-600',
+    'Frameworks & Technologies': 'bg-blue-600',
+    'Tools & Infrastructure': 'bg-blue-600'
+  };
+
   return (
     <div>
       <div className="flex justify-between mb-2">
@@ -31,7 +44,7 @@ function SkillBar({ name, level }) {
       </div>
       <div className="h-2 bg-gray-200 rounded-full">
         <div
-          className="h-full bg-purple-800 rounded-full transition-all duration-500"
+          className={`h-full ${barColors[category]} rounded-full transition-all duration-500`}
           style={{ width: `${level}%` }}
         />
       </div>
@@ -44,7 +57,7 @@ export function Skills() {
     <section id="skills" className="py-20 bg-white">
       <div className="container mx-auto px-6">
         <h2 className="text-4xl font-bold text-center mb-16">
-          Skills & Expertise
+          Technical Skills
         </h2>
         <div className="grid md:grid-cols-3 gap-12">
           {Object.entries(skills).map(([category, skillList]) => (
@@ -52,7 +65,11 @@ export function Skills() {
               <h3 className="text-2xl font-bold mb-6">{category}</h3>
               <div className="space-y-6">
                 {skillList.map((skill) => (
-                  <SkillBar key={skill.name} {...skill} />
+                  <SkillBar 
+                    key={skill.name} 
+                    {...skill} 
+                    category={category}
+                  />
                 ))}
               </div>
             </div>
