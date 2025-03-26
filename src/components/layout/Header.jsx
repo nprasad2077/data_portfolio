@@ -37,7 +37,7 @@ function SocialLinks() {
   return (
     <>
       <a
-        href="https://github.com"
+        href="https://github.com/nprasad2077"
         target="_blank"
         rel="noopener noreferrer"
         className="text-gray-600 hover:text-gray-900"
@@ -45,7 +45,7 @@ function SocialLinks() {
         <Icons.Github size={20} />
       </a>
       <a
-        href="https://linkedin.com"
+        href="https://www.linkedin.com/in/nikhilrprasad/"
         target="_blank"
         rel="noopener noreferrer"
         className="text-gray-600 hover:text-gray-900"
@@ -53,7 +53,7 @@ function SocialLinks() {
         <Icons.Linkedin size={20} />
       </a>
       <a
-        href="mailto:your.email@example.com"
+        href="mailto:nprasad2077@gmail.com"
         className="text-gray-600 hover:text-gray-900"
       >
         <Icons.Mail size={20} />
@@ -70,7 +70,7 @@ export function Header() {
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <a href="#home" className="text-2xl font-bold text-gray-800">
-            Sarah Anderson
+            Nick Prasad
           </a>
 
           {/* Desktop Navigation */}
