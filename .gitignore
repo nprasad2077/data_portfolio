@@ -150,3 +150,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+
+# Directories and Files
+resume_extract
+resume_extract/
+resume_extract/*

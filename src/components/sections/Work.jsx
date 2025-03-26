@@ -1,30 +1,52 @@
 // src/components/sections/Work.jsx
-import Manifest from '@mnfst/sdk';
-import { ExternalLink } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import * as Icons from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { FadeIn } from '../animations/FadeIn';
 
+// Sample projects data
+const sampleProjects = [
+  {
+    id: 1,
+    title: "AI-Powered Analytics Dashboard",
+    excerpt: "A comprehensive analytics platform leveraging machine learning to provide actionable insights for business intelligence.",
+    description: "Built with React, TensorFlow.js, and D3.js, this dashboard provides real-time data visualization and predictive analytics.",
+    role: "Lead Frontend Developer",
+    date: "2024",
+    url: "https://example.com/analytics-dashboard",
+    photo: {
+      large: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1600",
+      small: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800"
+    }
+  },
+  {
+    id: 2,
+    title: "E-commerce Platform Redesign",
+    excerpt: "A complete overhaul of an e-commerce platform focusing on user experience and conversion optimization.",
+    description: "Implemented modern design principles and optimized checkout flow, resulting in a 40% increase in conversion rate.",
+    role: "UX Designer & Developer",
+    date: "2024",
+    url: "https://example.com/ecommerce-redesign",
+    photo: {
+      large: "https://images.unsplash.com/photo-1557821552-17105176677c?w=1600",
+      small: "https://images.unsplash.com/photo-1557821552-17105176677c?w=800"
+    }
+  },
+  {
+    id: 3,
+    title: "Healthcare Management System",
+    excerpt: "A comprehensive healthcare management solution for clinics and small hospitals.",
+    description: "Developed a HIPAA-compliant system that streamlines patient management and appointment scheduling.",
+    role: "Full Stack Developer",
+    date: "2023",
+    url: "https://example.com/healthcare-system",
+    photo: {
+      large: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1600",
+      small: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800"
+    }
+  }
+];
+
 export function Work() {
-  const [projects, setProjects] = useState([]);
-
-  useEffect(() => {
-    const fetchProjects = async () => {
-      try {
-        const manifest = new Manifest('http://localhost:1111');
-        const paginator = await manifest
-          .from('projects')
-          .orderBy('date', { desc: true })
-          .find();
-        setProjects(paginator.data);
-      } catch (error) {
-        console.error('Error fetching projects:', error);
-      }
-    };
-    
-    fetchProjects();
-  }, []);
-
   return (
     <section id="work" className="py-32 bg-white">
       <div className="container mx-auto px-6">
@@ -35,8 +57,8 @@ export function Work() {
         </FadeIn>
 
         <div className="space-y-32">
-          {projects.map((project, index) => (
-            <FadeIn key={index} delay={index * 0.2}>
+          {sampleProjects.map((project, index) => (
+            <FadeIn key={project.id} delay={index * 0.2}>
               <div className="group">
                 <div
                   className={`grid md:grid-cols-3 gap-12 items-center ${
@@ -50,7 +72,7 @@ export function Work() {
                     }`}
                   >
                     <div className="relative aspect-[16/9] overflow-hidden rounded-xl">
-                      <Link to={`/project/${index}`} className="block">
+                      <Link to={`/project/${project.id}`} className="block">
                         <img
                           src={project.photo.large || project.photo.small}
                           alt={project.title}
@@ -78,9 +100,11 @@ export function Work() {
                       </div>
                       <a
                         href={project.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium"
                       >
-                        View Case Study <ExternalLink size={18} />
+                        View Case Study <Icons.ExternalLink size={18} />
                       </a>
                     </div>
                   </div>
