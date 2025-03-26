@@ -29,10 +29,10 @@ export function Hero() {
           transition={{ duration: 1, delay: 0.5 }}
         >
           <h1 className="text-6xl md:text-8xl font-bold mb-6">
-            Sarah Anderson
+            Nick Prasad
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-2xl mx-auto">
-            Product Designer crafting meaningful digital experiences
+            Data Engineer and Full Stack Developer crafting efficient solutions
           </p>
         </motion.div>
 
