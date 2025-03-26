@@ -1,5 +1,6 @@
 // src/components/sections/About.jsx
 import { FadeIn } from '../animations/FadeIn';
+import profileImage from '../../assets/images/profile.jpeg'
 
 export function About() {
   const features = [
@@ -31,9 +32,9 @@ export function About() {
           <FadeIn direction="right">
             <div className="relative">
               <img
-                src="https://images.unsplash.com/photo-1452830978618-d6feae7d0ffa"
-                alt="Sarah working"
-                className="rounded-2xl shadow-2xl"
+                src={profileImage}
+                alt="Nick Prasad"
+                className="rounded-2xl shadow-2xl w-full h-auto object-cover aspect-square"
               />
             </div>
           </FadeIn>
