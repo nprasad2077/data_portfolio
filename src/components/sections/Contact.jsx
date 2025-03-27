@@ -1,22 +1,22 @@
 // src/components/sections/Contact.jsx
-import emailjs from '@emailjs/browser';
-import { Mail, MapPin, Phone } from 'lucide-react';
-import { useState, useRef, useEffect } from 'react';
-import { FadeIn } from '../animations/FadeIn';
+import emailjs from "@emailjs/browser";
+import { Mail, MapPin, Phone } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
+import { FadeIn } from "../animations/FadeIn";
 
 // Initialize EmailJS
 const initializeEmailJS = () => {
   const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
   if (!publicKey) {
-    console.error('EmailJS public key is not defined in environment variables');
+    console.error("EmailJS public key is not defined in environment variables");
     return;
   }
   emailjs.init(publicKey);
 };
 
 function ContactInfo({ icon, title, content, href }) {
-  const ContentWrapper = href ? 'a' : 'div';
-  
+  const ContentWrapper = href ? "a" : "div";
+
   return (
     <div className="flex items-start gap-4">
       <div className="p-3 bg-blue-100 rounded-lg text-blue-600">{icon}</div>
@@ -24,7 +24,11 @@ function ContactInfo({ icon, title, content, href }) {
         <h4 className="font-medium text-gray-900">{title}</h4>
         <ContentWrapper
           href={href}
-          className={href ? 'text-blue-600 hover:text-blue-700 transition-colors' : 'text-gray-600'}
+          className={
+            href
+              ? "text-blue-600 hover:text-blue-700 transition-colors"
+              : "text-gray-600"
+          }
         >
           {content}
         </ContentWrapper>
@@ -36,15 +40,15 @@ function ContactInfo({ icon, title, content, href }) {
 export function Contact() {
   const form = useRef();
   const [alertVisible, setAlertVisible] = useState(false);
-  const [alertMessage, setAlertMessage] = useState('');
-  const [alertType, setAlertType] = useState('success');
+  const [alertMessage, setAlertMessage] = useState("");
+  const [alertType, setAlertType] = useState("success");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     initializeEmailJS();
   }, []);
 
-  const showAlert = (message, type = 'success') => {
+  const showAlert = (message, type = "success") => {
     setAlertMessage(message);
     setAlertType(type);
     setAlertVisible(true);
@@ -59,21 +63,21 @@ export function Contact() {
     const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
 
     if (!serviceId || !templateId) {
-      showAlert('Email service configuration is missing.', 'error');
+      showAlert("Email service configuration is missing.", "error");
       setIsSubmitting(false);
       return;
     }
 
     // Get current time in CST
-    const cstTime = new Date().toLocaleString('en-US', {
-      timeZone: 'America/Chicago',
-      dateStyle: 'full',
-      timeStyle: 'long'
+    const cstTime = new Date().toLocaleString("en-US", {
+      timeZone: "America/Chicago",
+      dateStyle: "full",
+      timeStyle: "long",
     });
 
     // Add the timestamp to the form data
     const formData = new FormData(form.current);
-    formData.append('timestamp', cstTime);
+    formData.append("timestamp", cstTime);
 
     try {
       const result = await emailjs.sendForm(
@@ -83,17 +87,17 @@ export function Contact() {
       );
 
       if (result.status === 200) {
-        showAlert('Message sent successfully! I will get back to you soon.');
+        showAlert("Message sent successfully! I will get back to you soon.");
         form.current.reset();
       } else {
-        throw new Error('Failed to send message');
+        throw new Error("Failed to send message");
       }
     } catch (error) {
       showAlert(
-        'Sorry, there was an error sending your message. Please try again later.',
-        'error'
+        "Sorry, there was an error sending your message. Please try again later.",
+        "error"
       );
-      console.error('Error sending email:', error);
+      console.error("Error sending email:", error);
     } finally {
       setIsSubmitting(false);
     }
@@ -191,29 +195,31 @@ export function Contact() {
                 <input
                   type="hidden"
                   name="time"
-                  value={new Date().toLocaleString('en-US', {
-                    timeZone: 'America/Chicago',
-                    dateStyle: 'full',
-                    timeStyle: 'long'
+                  value={new Date().toLocaleString("en-US", {
+                    timeZone: "America/Chicago",
+                    dateStyle: "full",
+                    timeStyle: "long",
                   })}
                 />
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className={`w-full px-6 py-3 bg-blue-600 text-white rounded-lg transition-colors flex items-center justify-center gap-2 font-medium
-                    ${isSubmitting ? 'bg-blue-400 cursor-not-allowed' : 'hover:bg-blue-700'}`}
-                >
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
-                </button>
+                <div className="w-full">
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className={`w-full  py-3 bg-blue-600 text-white rounded-lg transition-colors flex items-center justify-center gap-2 font-medium
+      ${isSubmitting ? "bg-blue-400 cursor-not-allowed" : "hover:bg-blue-700"}`}
+                  >
+                    {isSubmitting ? "Sending..." : "Send Message"}
+                  </button>
+                </div>
               </form>
 
               {alertVisible && (
                 <div
                   role="alert"
                   className={`mt-4 px-4 py-3 rounded-lg w-full absolute bottom-0 left-0 ${
-                    alertType === 'success'
-                      ? 'bg-green-100 text-green-700 border border-green-300'
-                      : 'bg-red-100 text-red-700 border border-red-300'
+                    alertType === "success"
+                      ? "bg-green-100 text-green-700 border border-green-300"
+                      : "bg-red-100 text-red-700 border border-red-300"
                   }`}
                 >
                   {alertMessage}
