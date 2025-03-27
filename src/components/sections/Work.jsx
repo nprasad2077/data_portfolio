@@ -2,9 +2,10 @@
 import * as Icons from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { FadeIn } from '../animations/FadeIn';
+import nbaScoreboardImage from '../../assets/images/nba_scoreboard.png';
 
-// Sample projects data
-const sampleProjects = [
+// Projects data
+const projects = [
   {
     id: 1,
     title: "AI-Powered Analytics Dashboard",
@@ -20,15 +21,15 @@ const sampleProjects = [
   },
   {
     id: 2,
-    title: "E-commerce Platform Redesign",
-    excerpt: "A complete overhaul of an e-commerce platform focusing on user experience and conversion optimization.",
-    description: "Implemented modern design principles and optimized checkout flow, resulting in a 40% increase in conversion rate.",
-    role: "UX Designer & Developer",
-    date: "2024",
-    url: "https://example.com/ecommerce-redesign",
+    title: "NBA Scoreboard",
+    excerpt: "A comprehensive full-stack basketball solution featuring a responsive React frontend paired with a robust FastAPI backend.",
+    description: "A full-stack solution that marries a cutting-edge FastAPI backend with a dynamic React front-end to deliver an immersive, real-time NBA experience.",
+    role: "Full Stack Developer",
+    date: "2025",
+    url: "https://scoreboard.server.nbaapi.com/",
     photo: {
-      large: "https://images.unsplash.com/photo-1557821552-17105176677c?w=1600",
-      small: "https://images.unsplash.com/photo-1557821552-17105176677c?w=800"
+      large: nbaScoreboardImage,
+      small: nbaScoreboardImage
     }
   },
   {
@@ -57,7 +58,7 @@ export function Work() {
         </FadeIn>
 
         <div className="space-y-32">
-          {sampleProjects.map((project, index) => (
+          {projects.map((project, index) => (
             <FadeIn key={project.id} delay={index * 0.2}>
               <div className="group">
                 <div
@@ -74,7 +75,7 @@ export function Work() {
                     <div className="relative aspect-[16/9] overflow-hidden rounded-xl">
                       <Link to={`/project/${project.id}`} className="block">
                         <img
-                          src={project.photo.large || project.photo.small}
+                          src={project.photo.large}
                           alt={project.title}
                           className="w-full h-full object-cover bg-slate-100 transition-transform duration-700 group-hover:scale-105"
                         />
@@ -104,7 +105,7 @@ export function Work() {
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium"
                       >
-                        View Case Study <Icons.ExternalLink size={18} />
+                        View Live Site <Icons.ExternalLink size={18} />
                       </a>
                     </div>
                   </div>

@@ -1,14 +1,16 @@
 // src/pages/ProjectDetail.jsx
-import * as Icons from 'lucide-react';
-import { Link, useParams } from 'react-router-dom';
-import { FadeIn } from '../components/animations/FadeIn';
+import * as Icons from "lucide-react";
+import { Link, useParams } from "react-router-dom";
+import { FadeIn } from "../components/animations/FadeIn";
+import nbaScoreboardImage from '../assets/images/nba_scoreboard.png';
 
 // Import the sample projects data
 const sampleProjects = [
   {
     id: 1,
     title: "AI-Powered Analytics Dashboard",
-    excerpt: "A comprehensive analytics platform leveraging machine learning to provide actionable insights for business intelligence.",
+    excerpt:
+      "A comprehensive analytics platform leveraging machine learning to provide actionable insights for business intelligence.",
     description: `
       <p>The AI-Powered Analytics Dashboard represents a breakthrough in business intelligence tools, combining advanced machine learning capabilities with intuitive data visualization.</p>
       
@@ -35,45 +37,62 @@ const sampleProjects = [
     url: "https://example.com/analytics-dashboard",
     photo: {
       large: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1600",
-      small: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800"
-    }
+      small: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800",
+    },
   },
   {
     id: 2,
-    title: "E-commerce Platform Redesign",
-    excerpt: "A complete overhaul of an e-commerce platform focusing on user experience and conversion optimization.",
+    title: "NBA Scoreboard",
+    excerpt:
+      "A comprehensive full-stack basketball solution featuring a responsive React frontend paired with a robust FastAPI backend.",
     description: `
-      <p>The E-commerce Platform Redesign project focused on modernizing an existing online store while significantly improving the user experience and conversion rates.</p>
-      
-      <h3>Achievements:</h3>
+      <p>NBA Scoreboard is a full-stack solution that marries a cutting-edge FastAPI backend with a dynamic React front-end to deliver an immersive, real-time NBA experience.</p>
+      <br />
+      <h3>Key Features:</h3>
+      <br />
       <ul>
-        <li>40% increase in conversion rate</li>
-        <li>25% reduction in cart abandonment</li>
-        <li>60% improvement in mobile user engagement</li>
+        <li>Real-time game updates and live scores</li>
+        <li>Interactive box scores and statistics</li>
+        <li>Play-by-play analysis</li>
+        <li>Player statistics and league standings</li>
+        <li>WebSocket integration for live updates</li>
       </ul>
+      <br />
 
-      <h3>Key Improvements:</h3>
+      <h3>Technical Stack:</h3>
+      <br />
       <ul>
-        <li>Streamlined checkout process</li>
-        <li>Responsive design implementation</li>
-        <li>Enhanced product search and filtering</li>
-        <li>Improved product recommendations</li>
+        <li>Frontend: React.js</li>
+        <li>Backend: FastAPI</li>
+        <li>Real-time Updates: WebSockets</li>
+        <li>Data Management: REST APIs</li>
+        <li>Mobile-First Design</li>
       </ul>
+      <br />
 
-      <p>The project demonstrates how thoughtful UX design and modern development practices can transform an e-commerce business.</p>
+      <h3>Implementation Highlights:</h3>
+      <br />
+      <ul>
+        <li>Intelligent data progression handling</li>
+        <li>Comprehensive error recovery</li>
+        <li>Responsive design for all devices</li>
+        <li>Production-ready system architecture</li>
+        <li>Consistent data synchronization</li>
+      </ul>
     `,
-    role: "UX Designer & Developer",
-    date: "2024",
-    url: "https://example.com/ecommerce-redesign",
+    role: "Full Stack Developer",
+    date: "2025",
+    url: "https://scoreboard.server.nbaapi.com/",
     photo: {
-      large: "https://images.unsplash.com/photo-1557821552-17105176677c?w=1600",
-      small: "https://images.unsplash.com/photo-1557821552-17105176677c?w=800"
-    }
+      large: nbaScoreboardImage,
+      small: nbaScoreboardImage,
+    },
   },
   {
     id: 3,
     title: "Healthcare Management System",
-    excerpt: "A comprehensive healthcare management solution for clinics and small hospitals.",
+    excerpt:
+      "A comprehensive healthcare management solution for clinics and small hospitals.",
     description: `
       <p>The Healthcare Management System is a HIPAA-compliant solution designed to streamline clinical operations and improve patient care.</p>
       
@@ -99,15 +118,17 @@ const sampleProjects = [
     date: "2023",
     url: "https://example.com/healthcare-system",
     photo: {
-      large: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1600",
-      small: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800"
-    }
-  }
+      large:
+        "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1600",
+      small:
+        "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800",
+    },
+  },
 ];
 
 function ProjectDetail() {
   const { id } = useParams();
-  const project = sampleProjects.find(p => p.id.toString() === id);
+  const project = sampleProjects.find((p) => p.id.toString() === id);
 
   if (!project) {
     return (
