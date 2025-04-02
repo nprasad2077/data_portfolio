@@ -126,7 +126,7 @@ const sampleProjects = [
     `,
     role: "Full Stack Developer",
     date: "2024",
-    url: "https://example.com/vibes-store",
+    url: "https://shop.nikhil.engineer/",
     photo: {
       large: ecommerceImage,
       small: ecommerceImage,

@@ -17,7 +17,7 @@ const projects = [
       "This NLP solution uses a BERT-based token classification model to extract and validate financial values from healthcare insurance benefit descriptions. The system processes complex benefit text containing copays, percentages, and policy limits, using custom entity recognition and post-processing logic to handle numerical ranges and varied text formats. Built with the Hugging Face Transformers library, the pipeline includes specialized tokenization, BIO encoding, and production-ready inference capabilities for real-time benefit validation.",
     role: "NLP Engineer",
     date: "2024",
-    url: "https://example.com/analytics-dashboard",
+    url: "https://github.com/nprasad2077",
     photo: {
       large: NLPImage,
       small: NLPImage,
