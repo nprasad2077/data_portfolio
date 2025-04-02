@@ -3,23 +3,24 @@ import * as Icons from "lucide-react";
 import { Link } from "react-router-dom";
 import { FadeIn } from "../animations/FadeIn";
 import nbaScoreboardImage from "../../assets/images/nba_scoreboard.png";
-import ecommerceImage from '../../assets/images/vibe_store.png'
+import ecommerceImage from "../../assets/images/vibe_store.png";
+import NLPImage from "../../assets/images/NLP_diagram.png"
 
 // Projects data
 const projects = [
   {
     id: 1,
-    title: "AI-Powered Analytics Dashboard",
+    title: "Transformer Model for Healthcare Benefit Extraction",
     excerpt:
-      "A comprehensive analytics platform leveraging machine learning to provide actionable insights for business intelligence.",
+      "This project employs a fine-tuned BERT model to extract critical financial information from healthcare benefit descriptions, automating validation of copayment and coinsurance values in insurance documentation. The transformer-based solution processes unstructured text to identify and extract monetary amounts, percentages, coverage limits, and network status indicators, converting them into structured data for downstream validation processes.",
     description:
-      "Built with React, TensorFlow.js, and D3.js, this dashboard provides real-time data visualization and predictive analytics.",
-    role: "Lead Frontend Developer",
+      "This NLP solution uses a BERT-based token classification model to extract and validate financial values from healthcare insurance benefit descriptions. The system processes complex benefit text containing copays, percentages, and policy limits, using custom entity recognition and post-processing logic to handle numerical ranges and varied text formats. Built with the Hugging Face Transformers library, the pipeline includes specialized tokenization, BIO encoding, and production-ready inference capabilities for real-time benefit validation.",
+    role: "NLP Engineer",
     date: "2024",
     url: "https://example.com/analytics-dashboard",
     photo: {
-      large: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1600",
-      small: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800",
+      large: NLPImage,
+      small: NLPImage,
     },
   },
   {
@@ -48,10 +49,8 @@ const projects = [
     date: "2024",
     url: "https://shop.nikhil.engineer/",
     photo: {
-      large:
-        ecommerceImage,
-      small:
-        ecommerceImage,
+      large: ecommerceImage,
+      small: ecommerceImage,
     },
   },
 ];
