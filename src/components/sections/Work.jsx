@@ -12,7 +12,7 @@ const projects = [
     id: 1,
     title: "Transformer Model for Healthcare Benefit Extraction",
     excerpt:
-      "This project employs a fine-tuned BERT model to extract critical financial information from healthcare benefit descriptions, automating validation of copayment and coinsurance values in insurance documentation. The transformer-based solution processes unstructured text to identify and extract monetary amounts, percentages, coverage limits, and network status indicators, converting them into structured data for downstream validation processes.",
+      "This project employs a fine-tuned BERT model to extract critical financial information from healthcare benefit descriptions, automating validation of copayment and coinsurance values in insurance documentation. The transformer-based solution processes messages to identify and extract monetary amounts, percentages, coverage limits, and network status indicators, converting them into structured data for downstream validation processes.",
     description:
       "This NLP solution uses a BERT-based token classification model to extract and validate financial values from healthcare insurance benefit descriptions. The system processes complex benefit text containing copays, percentages, and policy limits, using custom entity recognition and post-processing logic to handle numerical ranges and varied text formats. Built with the Hugging Face Transformers library, the pipeline includes specialized tokenization, BIO encoding, and production-ready inference capabilities for real-time benefit validation.",
     role: "NLP Engineer",
