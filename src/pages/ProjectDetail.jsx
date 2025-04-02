@@ -3,6 +3,7 @@ import * as Icons from "lucide-react";
 import { Link, useParams } from "react-router-dom";
 import { FadeIn } from "../components/animations/FadeIn";
 import nbaScoreboardImage from '../assets/images/nba_scoreboard.png';
+import ecommerceImage from "../assets/images/vibe_store.png"
 
 // Import the sample projects data
 const sampleProjects = [
@@ -90,40 +91,47 @@ const sampleProjects = [
   },
   {
     id: 3,
-    title: "Healthcare Management System",
+    title: "Vibes Store E-Commerce Platform",
     excerpt:
-      "A comprehensive healthcare management solution for clinics and small hospitals.",
+      "A modern full-stack e-commerce solution with React frontend and Django REST backend.",
     description: `
-      <p>The Healthcare Management System is a HIPAA-compliant solution designed to streamline clinical operations and improve patient care.</p>
+      <p>Vibes Store is a comprehensive e-commerce platform built with React and Django REST Framework, providing a seamless shopping experience with modern UI and robust backend services.</p>
       
       <h3>Core Features:</h3>
       <ul>
-        <li>Electronic Health Records (EHR) management</li>
-        <li>Appointment scheduling and reminders</li>
-        <li>Billing and insurance processing</li>
-        <li>Secure patient portal</li>
+        <li>Product catalog with search, filtering and category navigation</li>
+        <li>User authentication and personalized account management</li>
+        <li>Shopping cart with persistent storage</li>
+        <li>Product reviews and rating system</li>
+        <li>Complete checkout flow with shipping and payment processing</li>
+        <li>Order history and tracking</li>
+        <li>Admin dashboard for inventory and user management</li>
       </ul>
-
-      <h3>Technical Details:</h3>
+      <br />
+      <h3 class='font-bold my-2 text-lg'>Technical Details:</h3>
       <ul>
-        <li>HIPAA-compliant data storage</li>
-        <li>Real-time notifications</li>
-        <li>Integration with laboratory systems</li>
-        <li>Mobile-responsive interface</li>
+        <li>React frontend with Framer Motion animations</li>
+        <li>Tailwind CSS for responsive, modern styling</li>
+        <li>React Context API for global state management</li>
+        <li>Django REST Framework backend with comprehensive API endpoints</li>
+        <li>JWT authentication for secure user management</li>
+        <li>PostgreSQL database for reliable data persistence</li>
+        <li>Docker and Nginx containerization for production deployment</li>
+        <li>Modular architecture separating user, product, and order operations</li>
       </ul>
 
-      <p>This project showcases the ability to create complex, secure systems while maintaining user-friendly interfaces for both healthcare providers and patients.</p>
+      <p>This project demonstrates the ability to create a production-ready e-commerce solution with attention to both user experience and system architecture, balancing performance, security, and scalability while maintaining a polished frontend experience.</p>
     `,
     role: "Full Stack Developer",
-    date: "2023",
-    url: "https://example.com/healthcare-system",
+    date: "2024",
+    url: "https://example.com/vibes-store",
     photo: {
       large:
-        "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1600",
+        ecommerceImage,
       small:
-        "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800",
+        ecommerceImage,
     },
-  },
+  }
 ];
 
 function ProjectDetail() {

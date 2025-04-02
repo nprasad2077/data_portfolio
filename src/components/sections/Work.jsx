@@ -1,50 +1,59 @@
 // src/components/sections/Work.jsx
-import * as Icons from 'lucide-react';
-import { Link } from 'react-router-dom';
-import { FadeIn } from '../animations/FadeIn';
-import nbaScoreboardImage from '../../assets/images/nba_scoreboard.png';
+import * as Icons from "lucide-react";
+import { Link } from "react-router-dom";
+import { FadeIn } from "../animations/FadeIn";
+import nbaScoreboardImage from "../../assets/images/nba_scoreboard.png";
+import ecommerceImage from '../../assets/images/vibe_store.png'
 
 // Projects data
 const projects = [
   {
     id: 1,
     title: "AI-Powered Analytics Dashboard",
-    excerpt: "A comprehensive analytics platform leveraging machine learning to provide actionable insights for business intelligence.",
-    description: "Built with React, TensorFlow.js, and D3.js, this dashboard provides real-time data visualization and predictive analytics.",
+    excerpt:
+      "A comprehensive analytics platform leveraging machine learning to provide actionable insights for business intelligence.",
+    description:
+      "Built with React, TensorFlow.js, and D3.js, this dashboard provides real-time data visualization and predictive analytics.",
     role: "Lead Frontend Developer",
     date: "2024",
     url: "https://example.com/analytics-dashboard",
     photo: {
       large: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1600",
-      small: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800"
-    }
+      small: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800",
+    },
   },
   {
     id: 2,
     title: "NBA Scoreboard",
-    excerpt: "A comprehensive full-stack basketball solution featuring a responsive React frontend paired with a robust FastAPI backend.",
-    description: "A full-stack solution that marries a cutting-edge FastAPI backend with a dynamic React front-end to deliver an immersive, real-time NBA experience.",
+    excerpt:
+      "A comprehensive full-stack basketball solution featuring a responsive React frontend paired with a robust FastAPI backend.",
+    description:
+      "A full-stack solution that marries a cutting-edge FastAPI backend with a dynamic React front-end to deliver an immersive, real-time NBA experience.",
     role: "Full Stack Developer",
     date: "2025",
     url: "https://scoreboard.server.nbaapi.com/",
     photo: {
       large: nbaScoreboardImage,
-      small: nbaScoreboardImage
-    }
+      small: nbaScoreboardImage,
+    },
   },
   {
     id: 3,
-    title: "Healthcare Management System",
-    excerpt: "A comprehensive healthcare management solution for clinics and small hospitals.",
-    description: "Developed a HIPAA-compliant system that streamlines patient management and appointment scheduling.",
+    title: "Vibes Store E-Commerce Platform",
+    excerpt:
+      "A full-featured e-commerce solution with React frontend and Django REST backend.",
+    description:
+      "Developed a modern e-commerce platform featuring a React frontend with Framer Motion animations and Tailwind CSS styling, complemented by a robust Django REST Framework backend. The frontend implements an intuitive shopping experience with animated transitions, detailed product pages, review systems, and a complete checkout flow managed through React Context API. The backend provides comprehensive API endpoints secured with JWT authentication, supporting advanced product operations, user management, and order processing with shipping and payment tracking. The application is containerized with Docker and Nginx for production deployment, connecting to PostgreSQL for reliable data persistence.",
     role: "Full Stack Developer",
-    date: "2023",
-    url: "https://example.com/healthcare-system",
+    date: "2024",
+    url: "https://shop.nikhil.engineer/",
     photo: {
-      large: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1600",
-      small: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800"
-    }
-  }
+      large:
+        ecommerceImage,
+      small:
+        ecommerceImage,
+    },
+  },
 ];
 
 export function Work() {
@@ -63,13 +72,13 @@ export function Work() {
               <div className="group">
                 <div
                   className={`grid md:grid-cols-3 gap-12 items-center ${
-                    index % 2 === 1 ? 'md:grid-flow-dense' : ''
+                    index % 2 === 1 ? "md:grid-flow-dense" : ""
                   }`}
                 >
                   {/* Project Image */}
                   <div
                     className={`md:col-span-2 ${
-                      index % 2 === 1 ? 'md:col-start-2' : ''
+                      index % 2 === 1 ? "md:col-start-2" : ""
                     }`}
                   >
                     <div className="relative aspect-[16/9] overflow-hidden rounded-xl">
