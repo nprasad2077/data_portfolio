@@ -2,43 +2,46 @@
 import * as Icons from "lucide-react";
 import { Link, useParams } from "react-router-dom";
 import { FadeIn } from "../components/animations/FadeIn";
-import nbaScoreboardImage from '../assets/images/nba_scoreboard.png';
-import ecommerceImage from "../assets/images/vibe_store.png"
+import nbaScoreboardImage from "../assets/images/nba_scoreboard.png";
+import ecommerceImage from "../assets/images/vibe_store.png";
+import NLPImage from "../assets/images/NLP_diagram.png"
 
 // Import the sample projects data
 const sampleProjects = [
   {
     id: 1,
-    title: "AI-Powered Analytics Dashboard",
+    title: "In-Network Transformer Model for Healthcare Benefit Extraction",
     excerpt:
-      "A comprehensive analytics platform leveraging machine learning to provide actionable insights for business intelligence.",
+      "A specialized NLP system utilizing BERT for extracting and validating financial information from healthcare insurance benefit descriptions.",
     description: `
-      <p>The AI-Powered Analytics Dashboard represents a breakthrough in business intelligence tools, combining advanced machine learning capabilities with intuitive data visualization.</p>
+      <p>The In-Network Transformer Model represents a sophisticated NLP solution that automates the extraction and validation of critical financial information from unstructured healthcare benefit descriptions.</p>
       
       <h3>Key Features:</h3>
       <ul>
-        <li>Real-time data processing and visualization</li>
-        <li>Machine learning-powered predictive analytics</li>
-        <li>Customizable dashboards and reporting</li>
-        <li>Integration with multiple data sources</li>
+        <li>Named entity recognition for monetary amounts, percentages, and coverage limits</li>
+        <li>Automated validation of copayment and coinsurance values</li>
+        <li>Processing of complex numeric ranges (e.g., "$120-350")</li>
+        <li>Distinction between in-network and out-of-network benefits</li>
+        <li>Structured data extraction from varied text formats</li>
       </ul>
 
-      <h3>Technical Stack:</h3>
+      <h3 class='font-bold my-2 text-lg'>Technical Stack:</h3>
       <ul>
-        <li>Frontend: React.js, D3.js</li>
-        <li>Machine Learning: TensorFlow.js</li>
-        <li>Data Processing: Python, Pandas</li>
-        <li>Backend: Node.js, Express</li>
+        <li>Model: BERT-base-cased fine-tuned for token classification</li>
+        <li>Framework: Hugging Face Transformers, PyTorch</li>
+        <li>Data Processing: Custom BIO encoding, entity alignment</li>
+        <li>Training: Early stopping based on F1 score optimization</li>
+        <li>Inference: Specialized post-processing for entity reconstruction</li>
       </ul>
 
-      <p>This project showcases the power of modern web technologies in creating sophisticated business tools that are both powerful and user-friendly.</p>
+      <p>This project demonstrates how transformer-based models can be applied to domain-specific information extraction tasks, converting complex healthcare text into structured, actionable data while maintaining high accuracy for downstream validation processes.</p>
     `,
-    role: "Lead Frontend Developer",
+    role: "NLP Engineer",
     date: "2024",
-    url: "https://example.com/analytics-dashboard",
+    url: "https://github.com/nprasad2077",
     photo: {
-      large: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1600",
-      small: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800",
+      large: NLPImage,
+      small: NLPImage,
     },
   },
   {
@@ -71,8 +74,7 @@ const sampleProjects = [
       </ul>
       <br />
 
-      <h3>Implementation Highlights:</h3>
-      <br />
+      <h3 class='font-bold my-2 text-lg'>Implementation Highlights:</h3>
       <ul>
         <li>Intelligent data progression handling</li>
         <li>Comprehensive error recovery</li>
@@ -126,12 +128,10 @@ const sampleProjects = [
     date: "2024",
     url: "https://example.com/vibes-store",
     photo: {
-      large:
-        ecommerceImage,
-      small:
-        ecommerceImage,
+      large: ecommerceImage,
+      small: ecommerceImage,
     },
-  }
+  },
 ];
 
 function ProjectDetail() {
