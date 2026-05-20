@@ -8,7 +8,7 @@ Personal portfolio site for Nick Prasad, a Data Engineer and Full Stack Develope
 - Project showcase with detail pages (React Router)
 - Technical skills breakdown (Languages, Frameworks, Tools)
 - Contact form via EmailJS
-- Vercel Analytics and Speed Insights
+- Vercel Analytics and Speed Insights.
 - Fully responsive design
 
 ## Tech Stack
