@@ -156,3 +156,5 @@ dist-ssr
 resume_extract
 resume_extract/
 resume_extract/*
+.vercel
+.env*.local
