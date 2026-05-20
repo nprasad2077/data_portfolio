@@ -1,5 +1,5 @@
 // src/App.jsx
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from '@vercel/speed-insights/react';
 import { Footer } from './components/layout/Footer';
@@ -16,6 +16,20 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/project/:id" element={<ProjectDetail />} />
+            <Route
+              path="*"
+              element={
+                <div className="min-h-screen flex items-center justify-center">
+                  <div className="text-center">
+                    <h1 className="text-6xl font-bold text-gray-300 mb-4">404</h1>
+                    <p className="text-xl text-gray-600 mb-8">Page not found</p>
+                    <Link to="/" className="text-blue-600 hover:text-blue-700 font-medium">
+                      Go Home
+                    </Link>
+                  </div>
+                </div>
+              }
+            />
           </Routes>
         </main>
         <Footer />
