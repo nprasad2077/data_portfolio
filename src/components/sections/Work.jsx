@@ -85,6 +85,8 @@ export function Work() {
                         <img
                           src={project.photo.large}
                           alt={project.title}
+                          loading="lazy"
+                          decoding="async"
                           className="w-full h-full object-cover bg-slate-100 transition-transform duration-700 group-hover:scale-105"
                         />
                       </Link>

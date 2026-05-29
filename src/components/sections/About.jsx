@@ -34,6 +34,8 @@ export function About() {
               <img
                 src={profileImage}
                 alt="Nick Prasad"
+                loading="lazy"
+                decoding="async"
                 className="rounded-2xl shadow-2xl w-full h-auto object-cover aspect-square"
               />
             </div>

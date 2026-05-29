@@ -1,5 +1,6 @@
 // src/pages/ProjectDetail.jsx
 import * as Icons from "lucide-react";
+import { LazyMotion, domAnimation } from "framer-motion";
 import { Link, useParams } from "react-router-dom";
 import { FadeIn } from "../components/animations/FadeIn";
 import nbaScoreboardImage from "../assets/images/nba_scoreboard.png";
@@ -175,6 +176,7 @@ function ProjectDetail() {
   }
 
   return (
+    <LazyMotion features={domAnimation} strict>
     <div className="pt-24 pb-32">
       <div className="container mx-auto px-6">
         <FadeIn>
@@ -218,6 +220,8 @@ function ProjectDetail() {
                 <img
                   src={project.photo.large}
                   alt={project.title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -231,6 +235,7 @@ function ProjectDetail() {
         </FadeIn>
       </div>
     </div>
+    </LazyMotion>
   );
 }
 
