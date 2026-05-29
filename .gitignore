@@ -158,3 +158,5 @@ resume_extract/
 resume_extract/*
 .vercel
 .env*.local
+
+docs
