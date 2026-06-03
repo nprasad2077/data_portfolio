@@ -2,12 +2,42 @@
 import * as Icons from "lucide-react";
 import { Link } from "react-router-dom";
 import { FadeIn } from "../animations/FadeIn";
-import nbaScoreboardImage from "../../assets/images/nba_scoreboard.png";
-import ecommerceImage from "../../assets/images/vibe_store.png";
+import medicareImage from "../../assets/images/medicare_dashboard.png";
+import nbaApiImage from "../../assets/images/nba_api_architecture.svg";
 import NLPImage from "../../assets/images/NLP_diagram.png"
 
 // Projects data
 const projects = [
+  {
+    id: 2,
+    title: "Medicare Enrollment Dashboard",
+    excerpt:
+      "An interactive analytics dashboard visualizing CMS Medicare enrollment data across all US states and counties, featuring real-time API integration, choropleth maps, and drill-down trend analysis.",
+    description:
+      "Built an interactive analytics dashboard that transforms raw CMS Medicare Monthly Enrollment data into actionable insights. Features dual-view modes for Hospital/Medical and Prescription Drug enrollment, an interactive choropleth map with state-to-county drill-down, and trend charts showing yearly and 12-month enrollment patterns. Powered by live data from the data.cms.gov API with react-query caching for performance.",
+    role: "Data Engineer",
+    date: "2026",
+    url: "https://medicare-enrollment-dashboard.vercel.app/",
+    photo: {
+      large: medicareImage,
+      small: medicareImage,
+    },
+  },
+  {
+    id: 3,
+    title: "NBA Statistics REST API",
+    excerpt:
+      "A high-performance, load-balanced REST API serving comprehensive NBA statistics to thousands of daily users. Built with Go (Fiber), PostgreSQL, and NGINX across 3 containerized instances with full Prometheus and Grafana observability. 45+ GitHub stars, 70+ Reddit upvotes, and 99+ Postman forks.",
+    description:
+      "Engineered a production-grade NBA statistics API that routes requests through an NGINX load balancer to 3 Go (Fiber) instances backed by PostgreSQL. Serves paginated endpoints for player stats, game box scores, and shot chart data scraped from Basketball Reference. Includes Prometheus + Grafana observability, rate limiting, API key auth, Swagger docs, and containerized deployment. Continuously updated with new seasons and performance improvements. Adopted by 45+ GitHub stargazers, 70+ Reddit upvoters, and 99+ Postman collection forks.",
+    role: "Backend Engineer",
+    date: "2025",
+    url: "https://documenter.getpostman.com/view/25652688/2sB34Zs4xZ",
+    photo: {
+      large: nbaApiImage,
+      small: nbaApiImage,
+    },
+  },
   {
     id: 1,
     title: "Transformer Model for Healthcare Benefit Extraction",
@@ -21,36 +51,6 @@ const projects = [
     photo: {
       large: NLPImage,
       small: NLPImage,
-    },
-  },
-  {
-    id: 2,
-    title: "NBA Scoreboard",
-    excerpt:
-      "A comprehensive full-stack basketball solution featuring a responsive React frontend paired with a robust FastAPI backend.",
-    description:
-      "A full-stack solution that marries a cutting-edge FastAPI backend with a dynamic React front-end to deliver an immersive, real-time NBA experience.",
-    role: "Full Stack Developer",
-    date: "2025",
-    url: "https://scoreboard.server.nbaapi.com/",
-    photo: {
-      large: nbaScoreboardImage,
-      small: nbaScoreboardImage,
-    },
-  },
-  {
-    id: 3,
-    title: "Vibes Store E-Commerce Platform",
-    excerpt:
-      "A full-featured e-commerce solution with React frontend and Django REST backend.",
-    description:
-      "Developed a modern e-commerce platform featuring a React frontend with Framer Motion animations and Tailwind CSS styling, complemented by a robust Django REST Framework backend. The frontend implements an intuitive shopping experience with animated transitions, detailed product pages, review systems, and a complete checkout flow managed through React Context API. The backend provides comprehensive API endpoints secured with JWT authentication, supporting advanced product operations, user management, and order processing with shipping and payment tracking. The application is containerized with Docker and Nginx for production deployment, connecting to PostgreSQL for reliable data persistence.",
-    role: "Full Stack Developer",
-    date: "2024",
-    url: "https://shop.nikhil.engineer/",
-    photo: {
-      large: ecommerceImage,
-      small: ecommerceImage,
     },
   },
 ];
@@ -68,7 +68,7 @@ export function Work() {
         <div className="space-y-32">
           {projects.map((project, index) => (
             <FadeIn key={project.id} delay={index * 0.2}>
-              <div className="group">
+              <div className="group" id={`project-${project.id}`}>
                 <div
                   className={`grid md:grid-cols-3 gap-12 items-center ${
                     index % 2 === 1 ? "md:grid-flow-dense" : ""
@@ -117,6 +117,12 @@ export function Work() {
                       >
                         View Live Site <Icons.ExternalLink size={18} />
                       </a>
+                      <Link
+                        to={`/project/${project.id}`}
+                        className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 font-medium"
+                      >
+                        View Details <Icons.ArrowRight size={18} />
+                      </Link>
                     </div>
                   </div>
                 </div>

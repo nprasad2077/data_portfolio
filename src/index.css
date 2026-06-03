@@ -43,6 +43,21 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Content visibility for below-fold sections */
+section:not(:first-child) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 800px;
+}
+
 /* Mobile optimizations */
 @media (max-width: 768px) {
   .container {
