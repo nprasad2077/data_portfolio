@@ -5,6 +5,7 @@ import { Link, useParams } from "react-router-dom";
 import { FadeIn } from "../components/animations/FadeIn";
 import medicareImage from "../assets/images/medicare_dashboard.png";
 import nbaApiImage from "../assets/images/nba_api_architecture.svg";
+import nbaStreamlitImage from "../assets/images/nba_streamlit.png";
 import NLPImage from "../assets/images/NLP_diagram.png";
 
 const sampleProjects = [
@@ -118,6 +119,54 @@ const sampleProjects = [
     date: "2025",
     url: "https://api.server.nbaapi.com/",
     photo: { large: nbaApiImage, small: nbaApiImage },
+  },
+  {
+    id: 4,
+    title: "NBA Analytics Dashboard",
+    excerpt:
+      "An end-to-end analytics platform with a Streamlit dashboard powered by dbt-modeled star schema data.",
+    description: {
+      intro:
+        "The NBA Analytics Dashboard is a full analytics platform that combines a dbt-core data warehouse with an interactive Streamlit frontend. Data flows from the Go REST API through a medallion architecture pipeline (Bronze, Silver, Gold) into a star schema optimized for analytical queries, then surfaces through an interactive dashboard with sub-100ms query performance.",
+      sections: [
+        {
+          heading: "Dashboard Features",
+          items: [
+            "Advanced player metrics and efficiency ratings",
+            "Interactive shot charts with coordinate-level data",
+            "Season-over-season player comparisons",
+            "Team performance breakdowns and rankings",
+            "Historical trend analysis across 70+ NBA seasons",
+          ],
+        },
+        {
+          heading: "Data Pipeline",
+          items: [
+            "dbt-core models with star schema (fact tables + dimensions)",
+            "Medallion architecture: raw ingestion, cleaned, analytics-ready",
+            "Continuous data refresh schedule from the Go API",
+            "Incremental materialization for efficient processing",
+            "Data quality tests and schema validation in dbt",
+          ],
+        },
+        {
+          heading: "Technical Stack",
+          items: [
+            "Frontend: Streamlit (Python)",
+            "Modeling: dbt-core with Jinja templating",
+            "Database: PostgreSQL with optimized indexes",
+            "API Source: Go (Fiber) REST API",
+            "Deployment: Streamlit Cloud with automated refresh",
+          ],
+        },
+      ],
+      conclusion:
+        "This project demonstrates end-to-end analytics engineering: ingesting raw data, modeling it with industry-standard practices (Kimball, medallion), and delivering self-service analytics through an interactive dashboard.",
+    },
+    role: "Analytics Engineer",
+    date: "2025",
+    url: "https://dbtnba.streamlit.app/",
+    photo: { large: nbaStreamlitImage, small: nbaStreamlitImage },
   },
   {
     id: 1,
