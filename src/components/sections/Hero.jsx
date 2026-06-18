@@ -29,7 +29,7 @@ export function Hero() {
         >
           <h1 className="text-6xl md:text-8xl font-bold mb-6">Nick Prasad</h1>
           <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-2xl mx-auto">
-            Data Engineer and Full Stack Developer crafting efficient solutions
+            Data Engineer and Full Stack Developer building reliable data systems at scale
           </p>
         </m.div>
 

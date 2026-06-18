@@ -7,20 +7,20 @@ export function About() {
     {
       icon: '🎯',
       title: 'Data Engineering',
-      description: 'Building efficient data pipelines and solutions',
+      description: 'Large-scale ETL/ELT pipelines processing 800M+ records/month',
       bgColor: 'bg-blue-100'
     },
     {
-      icon: '💡',
-      title: 'Full Stack Development',
-      description: 'Creating end-to-end web applications',
-      bgColor: 'bg-green-100'
+      icon: '☁️',
+      title: 'Cloud Platforms',
+      description: 'AWS, Microsoft Fabric, and Snowflake data architectures',
+      bgColor: 'bg-green-200'
     },
     {
       icon: '✨',
-      title: 'System Optimization',
-      description: 'Improving performance and efficiency',
-      bgColor: 'bg-purple-100'
+      title: 'Data Governance',
+      description: 'Quality frameworks, HIPAA compliance, and lineage tracking',
+      bgColor: 'bg-slate-500'
     }
   ];
 
@@ -46,9 +46,10 @@ export function About() {
             <div className="space-y-6">
               <h2 className="text-4xl md:text-5xl font-bold">About Me</h2>
               <p className="text-xl text-gray-600">
-                Growth-oriented data enthusiast passionate about web development and system optimization. 
-                Skilled in writing clear, concise, and easily maintainable code. 
-                Seeking opportunities to expand expertise in data applications and software development.
+                Data Engineer with 3+ years designing and operating large-scale data pipelines, 
+                data warehouses, and lakehouse architectures across AWS and Microsoft Fabric. 
+                PharmD background enables deep fluency in clinical, pharmacy benefit, and Medicare enrollment data. 
+                Passionate about building reliable, observable data systems that power business decisions.
               </p>
               
               {/* Features */}

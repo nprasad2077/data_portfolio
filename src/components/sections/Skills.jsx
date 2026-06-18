@@ -1,39 +1,37 @@
 // src/components/sections/Skills.jsx
 const skills = {
-  'Languages': [
-    { name: 'SQL', level: 90 },
-    { name: 'Python', level: 85 },
-    { name: 'JavaScript', level: 85 },
-    { name: 'TypeScript', level: 80 },
-    { name: 'HTML/CSS', level: 85 },
+  '⚡ Languages & Pipelines': [
+    { name: 'SQL', level: 95 },
+    { name: 'Python / PySpark', level: 90 },
+    { name: 'dbt-core', level: 90 },
+    { name: 'Apache Spark', level: 85 },
+    { name: 'Go (Fiber)', level: 75 },
+    { name: 'Bash / PowerShell', level: 80 },
   ],
-  'Frameworks & Technologies': [
-    { name: 'React', level: 85 },
-    { name: 'Django', level: 80 },
-    { name: 'FastAPI', level: 75 },
-    { name: '.NET Web API', level: 75 },
-    { name: 'Express.js', level: 80 },
-    { name: 'Node.js', level: 80 },
-    { name: 'Tailwind', level: 85 },
-    { name: 'REST API', level: 85 },
+  '☁️ Cloud & Infrastructure': [
+    { name: 'AWS (S3, Glue, Athena, ECS, Lambda)', level: 90 },
+    { name: 'Microsoft Fabric', level: 90 },
+    { name: 'Docker / Containers', level: 85 },
+    { name: 'Terraform / Pulumi / IaC', level: 80 },
+    { name: 'PostgreSQL / MS SQL Server', level: 90 },
+    { name: 'Kafka / Kinesis', level: 75 },
   ],
-  'Tools & Infrastructure': [
-    { name: 'Docker', level: 80 },
-    { name: 'AWS Services', level: 75 },
-    { name: 'PostgreSQL', level: 90 },
-    { name: 'Microsoft SQL Server', level: 85 },
-    { name: 'Git/Azure DevOps', level: 85 },
-    { name: 'DBT-core', level: 80 },
-    { name: 'Power BI', level: 75 },
-    { name: 'SSRS/SSIS', level: 80 },
+  '📊 Data Modeling & Analytics': [
+    { name: 'Star Schema / Kimball', level: 90 },
+    { name: 'Medallion Architecture', level: 90 },
+    { name: 'Power BI / Fabric Reports', level: 85 },
+    { name: 'SSIS / SSRS', level: 80 },
+    { name: 'Data Governance / HIPAA', level: 85 },
+    { name: 'Parquet / Delta Lake', level: 85 },
+    { name: 'CI/CD (Git, Azure DevOps)', level: 85 },
   ]
 };
 
 function SkillBar({ name, level, category }) {
   const barColors = {
-    'Languages': 'bg-blue-600',
-    'Frameworks & Technologies': 'bg-blue-600',
-    'Tools & Infrastructure': 'bg-blue-600'
+    '⚡ Languages & Pipelines': 'bg-blue-600',
+    '☁️ Cloud & Infrastructure': 'bg-emerald-600',
+    '📊 Data Modeling & Analytics': 'bg-violet-600'
   };
 
   return (

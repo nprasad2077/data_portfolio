@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { FadeIn } from "../animations/FadeIn";
 import medicareImage from "../../assets/images/medicare_dashboard.png";
 import nbaApiImage from "../../assets/images/nba_api_architecture.svg";
+import nbaStreamlitImage from "../../assets/images/nba_streamlit.png";
 import NLPImage from "../../assets/images/NLP_diagram.png"
 
 // Projects data
@@ -36,6 +37,21 @@ const projects = [
     photo: {
       large: nbaApiImage,
       small: nbaApiImage,
+    },
+  },
+  {
+    id: 4,
+    title: "NBA Analytics Dashboard",
+    excerpt:
+      "An end-to-end analytics platform featuring a Streamlit dashboard with advanced player metrics, shot charts, and season comparisons, powered by dbt-modeled star schema data refreshed on a continuous schedule.",
+    description:
+      "Built an interactive Streamlit analytics dashboard on top of a dbt-core data warehouse with star schema modeling. The platform ingests live NBA data from the Go API, transforms it through a medallion architecture pipeline, and presents advanced metrics including shot charts, player comparisons, and season-over-season trends. Data is refreshed on a continuous schedule with sub-100ms p99 query response times.",
+    role: "Analytics Engineer",
+    date: "2025",
+    url: "https://dbtnba.streamlit.app/",
+    photo: {
+      large: nbaStreamlitImage,
+      small: nbaStreamlitImage,
     },
   },
   {
