@@ -1,4 +1,4 @@
-import { Mail, MapPin, Phone } from "lucide-react";
+import { FileText, Mail, MapPin, Phone } from "lucide-react";
 import { FadeIn } from "../animations/FadeIn";
 
 function ContactInfo({ icon, title, content, href }) {
@@ -55,6 +55,12 @@ export function Contact() {
                   icon={<MapPin className="w-5 h-5" />}
                   title="Location"
                   content="Houston, TX"
+                />
+                <ContactInfo
+                  icon={<FileText className="w-5 h-5" />}
+                  title="Resume"
+                  content="Download PDF"
+                  href="https://tinyurl.com/nickpras"
                 />
               </div>
             </div>
