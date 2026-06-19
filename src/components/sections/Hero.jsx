@@ -45,6 +45,9 @@ export function Hero() {
           <a href="#contact" className="px-8 py-4 border-2 border-white text-white rounded-full hover:bg-white/10 transition-colors text-lg">
             Get in Touch
           </a>
+          <a href="https://tinyurl.com/nickpras" target="_blank" rel="noopener noreferrer" className="px-8 py-4 border-2 border-white text-white rounded-full hover:bg-white/10 transition-colors text-lg">
+            Download Resume ↓
+          </a>
         </m.div>
       </div>
 

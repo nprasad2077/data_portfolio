@@ -38,6 +38,11 @@ export function Footer() {
                   Contact
                 </a>
               </li>
+              <li>
+                <a href="https://tinyurl.com/nickpras" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white">
+                  Resume
+                </a>
+              </li>
             </ul>
           </div>
 
