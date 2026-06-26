@@ -3,9 +3,9 @@ import * as Icons from "lucide-react";
 import { LazyMotion, domAnimation } from "framer-motion";
 import { Link, useParams } from "react-router-dom";
 import { FadeIn } from "../components/animations/FadeIn";
-import medicareImage from "../assets/images/medicare_dashboard.png";
+import medicareImage from "../assets/images/medicare_dashboard_opt.webp";
 import nbaApiImage from "../assets/images/nba_api_architecture.svg";
-import nbaStreamlitImage from "../assets/images/nba_streamlit.png";
+import nbaStreamlitImage from "../assets/images/nba_streamlit_opt.webp";
 import NLPImage from "../assets/images/NLP_diagram.png";
 
 const sampleProjects = [
