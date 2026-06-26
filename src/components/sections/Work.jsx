@@ -25,21 +25,6 @@ const projects = [
     },
   },
   {
-    id: 3,
-    title: "NBA Statistics REST API",
-    excerpt:
-      "A high-performance, load-balanced REST API serving comprehensive NBA statistics to thousands of daily users. Built with Go (Fiber), PostgreSQL, and NGINX across 3 containerized instances with full Prometheus and Grafana observability. 45+ GitHub stars, 70+ Reddit upvotes, and 99+ Postman forks.",
-    description:
-      "Engineered a production-grade NBA statistics API that routes requests through an NGINX load balancer to 3 Go (Fiber) instances backed by PostgreSQL. Serves paginated endpoints for player stats, game box scores, and shot chart data scraped from Basketball Reference. Includes Prometheus + Grafana observability, rate limiting, API key auth, Swagger docs, and containerized deployment. Continuously updated with new seasons and performance improvements. Adopted by 45+ GitHub stargazers, 70+ Reddit upvoters, and 99+ Postman collection forks.",
-    role: "Backend Engineer",
-    date: "2025",
-    url: "https://documenter.getpostman.com/view/25652688/2sB34Zs4xZ",
-    photo: {
-      large: nbaApiImage,
-      small: nbaApiImage,
-    },
-  },
-  {
     id: 4,
     title: "NBA Analytics Dashboard",
     excerpt:
@@ -52,6 +37,21 @@ const projects = [
     photo: {
       large: nbaStreamlitImage,
       small: nbaStreamlitImage,
+    },
+  },
+  {
+    id: 3,
+    title: "NBA Statistics REST API",
+    excerpt:
+      "A high-performance, load-balanced REST API serving comprehensive NBA statistics to thousands of daily users. Built with Go (Fiber), PostgreSQL, and NGINX across 3 containerized instances with full Prometheus and Grafana observability. 45+ GitHub stars, 70+ Reddit upvotes, and 99+ Postman forks.",
+    description:
+      "Engineered a production-grade NBA statistics API that routes requests through an NGINX load balancer to 3 Go (Fiber) instances backed by PostgreSQL. Serves paginated endpoints for player stats, game box scores, and shot chart data scraped from Basketball Reference. Includes Prometheus + Grafana observability, rate limiting, API key auth, Swagger docs, and containerized deployment. Continuously updated with new seasons and performance improvements. Adopted by 45+ GitHub stargazers, 70+ Reddit upvoters, and 99+ Postman collection forks.",
+    role: "Backend Engineer",
+    date: "2025",
+    url: "https://documenter.getpostman.com/view/25652688/2sB34Zs4xZ",
+    photo: {
+      large: nbaApiImage,
+      small: nbaApiImage,
     },
   },
   {

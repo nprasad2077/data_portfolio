@@ -40,23 +40,26 @@ function SocialLinks() {
         href="https://github.com/nprasad2077"
         target="_blank"
         rel="noopener noreferrer"
+        aria-label="GitHub"
         className="text-gray-600 hover:text-gray-900"
       >
-        <Icons.Github size={20} />
+        <Icons.Github size={20} aria-hidden="true" />
       </a>
       <a
         href="https://www.linkedin.com/in/nikhilrprasad/"
         target="_blank"
         rel="noopener noreferrer"
+        aria-label="LinkedIn"
         className="text-gray-600 hover:text-gray-900"
       >
-        <Icons.Linkedin size={20} />
+        <Icons.Linkedin size={20} aria-hidden="true" />
       </a>
       <a
         href="mailto:nprasad2077@gmail.com"
+        aria-label="Email"
         className="text-gray-600 hover:text-gray-900"
       >
-        <Icons.Mail size={20} />
+        <Icons.Mail size={20} aria-hidden="true" />
       </a>
     </>
   );

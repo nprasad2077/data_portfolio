@@ -23,9 +23,9 @@ export function Hero() {
 
       <div className="relative z-10 container mx-auto px-6 text-center">
         <m.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.5 }}
+          transition={{ duration: 0.5, delay: 0 }}
         >
           <h1 className="text-6xl md:text-8xl font-bold mb-6">Nick Prasad</h1>
           <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-2xl mx-auto">

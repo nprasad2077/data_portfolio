@@ -160,3 +160,6 @@ resume_extract/*
 .env*.local
 
 docs
+
+CLAUDE.md
+AGENTS.md
