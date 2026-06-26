@@ -1,6 +1,6 @@
 import { m } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
-import heroBg from '../../assets/images/hero-bg.jpg';
+import heroBg from '../../assets/images/hero-bg_opt.webp';
 
 export function Hero() {
   return (
