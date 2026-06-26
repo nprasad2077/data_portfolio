@@ -54,23 +54,26 @@ export function Footer() {
                 href="https://github.com/nprasad2077"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="GitHub"
                 className="text-gray-400 hover:text-white"
               >
-                <Github size={24} />
+                <Github size={24} aria-hidden="true" />
               </a>
               <a
                 href="https://www.linkedin.com/in/nikhilrprasad/"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="LinkedIn"
                 className="text-gray-400 hover:text-white"
               >
-                <Linkedin size={24} />
+                <Linkedin size={24} aria-hidden="true" />
               </a>
               <a
                 href="mailto:nprasad2077@gmail.com"
+                aria-label="Email"
                 className="text-gray-400 hover:text-white"
               >
-                <Mail size={24} />
+                <Mail size={24} aria-hidden="true" />
               </a>
             </div>
           </div>

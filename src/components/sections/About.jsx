@@ -18,8 +18,8 @@ export function About() {
     },
     {
       icon: '✨',
-      title: 'Data Governance',
-      description: 'Quality frameworks, HIPAA compliance, and lineage tracking',
+      title: 'AI/ML & Governance',
+      description: 'ML record linkage, anomaly detection, HIPAA compliance, and lineage tracking',
       bgColor: 'bg-slate-500'
     }
   ];
@@ -46,10 +46,11 @@ export function About() {
             <div className="space-y-6">
               <h2 className="text-4xl md:text-5xl font-bold">About Me</h2>
               <p className="text-xl text-gray-600">
-                Data Engineer with 3+ years designing and operating large-scale data pipelines, 
-                data warehouses, and lakehouse architectures across AWS and Microsoft Fabric. 
-                PharmD background enables deep fluency in clinical, pharmacy benefit, and Medicare enrollment data. 
-                Passionate about building reliable, observable data systems that power business decisions.
+                Data Engineer focused on scalable cloud data platforms, data governance, and AI/ML-enabled
+                quality solutions for healthcare and insurance products. Owns end-to-end AWS and Microsoft
+                Fabric platforms processing 800M+ records/month, with deep strengths in Python, PySpark, dbt,
+                data modeling, and executive analytics. PharmD background adds strong clinical, pharmacy
+                benefit, and HIPAA-regulated data context.
               </p>
               
               {/* Features */}
