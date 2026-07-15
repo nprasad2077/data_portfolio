@@ -6,7 +6,7 @@ import { FadeIn } from "../components/animations/FadeIn";
 import medicareImage from "../assets/images/medicare_dashboard_opt.webp";
 import nbaApiImage from "../assets/images/nba_api_architecture.svg";
 import nbaStreamlitImage from "../assets/images/nba_streamlit_opt.webp";
-import NLPImage from "../assets/images/NLP_diagram.png";
+import NLPImage from "../assets/images/NLP_diagram_opt.webp";
 
 const sampleProjects = [
   {

@@ -1,5 +1,39 @@
 @import "tailwindcss";
 
+/* Hero entrance animations (CSS so the hero paints without waiting on framer-motion) */
+@keyframes hero-fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes hero-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes hero-bg-in {
+  from { opacity: 0; transform: scale(1.2); }
+  to { opacity: 0.6; transform: scale(1); }
+}
+@keyframes hero-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+
+.hero-fade-up { animation: hero-fade-up 0.5s ease-out both; }
+.hero-fade-late { animation: hero-fade 1s ease-out 1s both; }
+.hero-fade-latest { animation: hero-fade 1s ease-out 1.5s both; }
+.hero-bg-in { opacity: 0.6; animation: hero-bg-in 1.5s ease-out both; }
+.hero-bounce { animation: hero-bounce 1.5s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-fade-up,
+  .hero-fade-late,
+  .hero-fade-latest,
+  .hero-bg-in,
+  .hero-bounce {
+    animation: none;
+  }
+}
+
 @layer base {
   :root {
     font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;

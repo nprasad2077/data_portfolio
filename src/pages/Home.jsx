@@ -1,19 +1,16 @@
-import { LazyMotion, domAnimation } from 'framer-motion';
+import { lazy, Suspense } from 'react';
 import { Hero } from '../components/sections/Hero';
-import { Work } from '../components/sections/Work';
-import { About } from '../components/sections/About';
-import { Skills } from '../components/sections/Skills';
-import { Contact } from '../components/sections/Contact';
+
+const BelowFold = lazy(() => import('../components/sections/BelowFold'));
 
 function Home() {
   return (
-    <LazyMotion features={domAnimation} strict>
+    <>
       <Hero />
-      <Work />
-      <About />
-      <Skills />
-      <Contact />
-    </LazyMotion>
+      <Suspense fallback={null}>
+        <BelowFold />
+      </Suspense>
+    </>
   );
 }
 

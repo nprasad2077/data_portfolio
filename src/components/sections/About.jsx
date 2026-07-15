@@ -1,6 +1,6 @@
 // src/components/sections/About.jsx
 import { FadeIn } from '../animations/FadeIn';
-import profileImage from '../../assets/images/profile.jpeg'
+import profileImage from '../../assets/images/profile_opt.webp'
 
 export function About() {
   const features = [
