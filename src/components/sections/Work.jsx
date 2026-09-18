@@ -6,9 +6,26 @@ import medicareImage from "../../assets/images/medicare_dashboard_opt.webp";
 import nbaApiImage from "../../assets/images/nba_api_architecture.svg";
 import nbaStreamlitImage from "../../assets/images/nba_streamlit_opt.webp";
 import NLPImage from "../../assets/images/NLP_diagram.png"
+import postgresReadsImage from "../../assets/images/postgres_read_scaling_opt.webp"
 
 // Projects data
 const projects = [
+  {
+    id: 5,
+    type: "Blog Post",
+    title: "Scaling PostgreSQL Reads Without Sharding",
+    excerpt:
+      "A published engineering deep-dive on moving a read-heavy analytical workload off a contended single Postgres instance and onto a three-node streaming-replication cluster, with a Layer-4 HAProxy read/write split and hardware-aware planner tuning.",
+    description:
+      "A published technical article documenting how a 3.5M-row, read-heavy analytics workload was scaled from one contended PostgreSQL instance to a one-primary / two-standby physical streaming-replication cluster. The write-up covers replication slots and bounded WAL retention, the explicit trade-offs of asynchronous replication, Layer-4 HAProxy routing into separate write (:5437) and round-robin read (:5438) connection pools, per-node planner tuning (including random_page_cost on NVMe), partial indexes aligned to soft deletes, CLUSTER-based physical row ordering, and why pg_stat_statements must be queried per node. A 300-request benchmark measured 64ms average latency at 295 req/s.",
+    role: "Author",
+    date: "2026",
+    url: "https://blog.space-city.dev/posts/2026/scaling-postgres-reads/",
+    photo: {
+      large: postgresReadsImage,
+      small: postgresReadsImage,
+    },
+  },
   {
     id: 2,
     title: "Medicare Enrollment Dashboard",
@@ -111,7 +128,14 @@ export function Work() {
 
                   {/* Project Info */}
                   <div className="space-y-6">
-                    <h3 className="text-3xl font-bold">{project.title}</h3>
+                    <div className="space-y-3">
+                      {project.type && (
+                        <span className="inline-block text-xs font-semibold uppercase tracking-wide text-blue-700 bg-blue-50 rounded-full px-3 py-1">
+                          {project.type}
+                        </span>
+                      )}
+                      <h3 className="text-3xl font-bold">{project.title}</h3>
+                    </div>
                     <p className="text-gray-600 text-lg leading-relaxed">
                       {project.excerpt}
                     </p>
@@ -131,7 +155,8 @@ export function Work() {
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium"
                       >
-                        View Live Site <Icons.ExternalLink size={18} />
+                        {project.type === "Blog Post" ? "Read Post" : "View Live Site"}{" "}
+                        <Icons.ExternalLink size={18} />
                       </a>
                       <Link
                         to={`/project/${project.id}`}

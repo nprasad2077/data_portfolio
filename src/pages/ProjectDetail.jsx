@@ -7,8 +7,93 @@ import medicareImage from "../assets/images/medicare_dashboard_opt.webp";
 import nbaApiImage from "../assets/images/nba_api_architecture.svg";
 import nbaStreamlitImage from "../assets/images/nba_streamlit_opt.webp";
 import NLPImage from "../assets/images/NLP_diagram.png";
+import postgresReadsImage from "../assets/images/postgres_read_scaling_opt.webp";
 
 const sampleProjects = [
+  {
+    id: 5,
+    type: "Blog Post",
+    title: "Scaling PostgreSQL Reads Without Sharding",
+    excerpt:
+      "A published engineering article on replacing a contended single Postgres instance with a three-node streaming-replication cluster, a Layer-4 proxy, and one very opinionated planner setting.",
+    description: {
+      intro:
+        "This published article documents how a read-heavy analytical workload — roughly 3.5 million rows across 17 tables of basketball telemetry — was taken off a single contended PostgreSQL instance and moved onto a three-node streaming-replication cluster. The core observation is that the workload is overwhelmingly read-heavy and the reads tolerate slight staleness, which makes horizontal read scaling a better fit than sharding. The result is one primary handling writes, two hot standbys serving analytics, and a Layer-4 HAProxy split that makes read/write intent explicit in the application.",
+      sections: [
+        {
+          heading: "The Problem",
+          items: [
+            "One Postgres instance was serving two incompatible workloads: nightly bulk ingestion and long analytical scans",
+            "Analytical queries (full-season aggregates, 366,601 shot coordinates for a single player) held buffers and CPU while ingestion tried to write",
+            "The root cause was concurrency contention, not data volume — 3.5M rows fit comfortably on one machine",
+          ],
+        },
+        {
+          heading: "Why Read Replicas Instead of Shards",
+          items: [
+            "Sharding solves a data-size problem; replicas solve a concurrency problem",
+            "Avoids cross-shard joins, a schema-aware routing layer, and a rebalancing story",
+            "Costs exactly one thing — a bounded amount of staleness — which the workload already tolerates",
+            "Physical streaming replication: standbys replay page-level WAL changes rather than re-executing SQL",
+          ],
+        },
+        {
+          heading: "Replication Slots and Disk Safety",
+          items: [
+            "Replication slots bookmark consumed WAL so a disconnected standby can catch up instead of needing a rebuild",
+            "wal_keep_size = 1GB sets a retention floor; max_slot_wal_keep_size = 2GB caps how much WAL a single slot can hold hostage",
+            "Bounded retention turns a catastrophic primary disk-fill into a loud, local standby rebuild",
+            "Standbys bootstrap with pg_basebackup (-R, -X stream, -S <slot>, -c fast) and only re-clone when PGDATA is absent",
+          ],
+        },
+        {
+          heading: "The Cost of Asynchronous Replication",
+          items: [
+            "synchronous_standby_names is deliberately unset, so the primary acknowledges commits before any standby sees them",
+            "Trade-off 1: a primary failure can lose recently committed transactions — recoverable for nightly-ingested analytics, not for payments",
+            "Trade-off 2: read-your-writes is not guaranteed, so consistency-critical reads go directly to the primary",
+            "Measured replication lag: 0 bytes, with replay lag around 0.0006s under normal load",
+            "hot_standby_feedback = on prevents vacuum from canceling long standby queries, at the cost of possible table bloat",
+          ],
+        },
+        {
+          heading: "Layer-4 Routing with HAProxy",
+          items: [
+            "HAProxy in mode tcp forwards raw bytes with no SQL parsing and well under a millisecond of overhead",
+            "Explicit application intent beats proxy guesswork with CTEs that write, side-effecting procedures, and SELECT ... FOR UPDATE",
+            "Write pool to :5437 (min 5 / max 25); read pool to :5438 (min 10 / max 50) fanning round-robin across two standbys",
+            "30-minute client and server timeouts accommodate legitimate multi-minute aggregations",
+            "TCP health checks evict dead backends in ~6 seconds, but cannot detect a standby stalled on WAL replay, and there is no automatic primary promotion",
+          ],
+        },
+        {
+          heading: "Making Each Node Faster",
+          items: [
+            "Identical tuning on all three nodes: shared_buffers 1GB, effective_cache_size 3GB, work_mem 16MB, maintenance_work_mem 128MB",
+            "random_page_cost lowered from the 4.0 default to 1.1 to describe NVMe storage accurately and stop the planner bypassing composite indexes",
+            "Seven CONCURRENTLY-built composite indexes matched to real query predicates",
+            "Partial indexes with WHERE deleted_at IS NULL keep soft-deleted rows out of index blocks entirely",
+            "CLUSTER on (game_id, player_id) collapses hundreds of scattered block reads into 20-30 contiguous pages; VACUUM (ANALYZE) follows to enable index-only scans",
+          ],
+        },
+        {
+          heading: "Observability and Measured Results",
+          items: [
+            "pg_stat_statements and pg_stat_io are per-node and do not replicate, so tooling must query the read pool and primary together",
+            "Operational make targets: top-queries, cache-health, io-stats, table-bloat, reset-stats",
+            "Edge-cache middleware in the Go API emits Immutable / SemiDynamic / Realtime / NoCache strategies and forces no-store on non-GET/HEAD",
+            "300-request benchmark: 64ms average latency at 295 req/s with 100% success",
+          ],
+        },
+      ],
+      conclusion:
+        "The article is as much about trade-offs as throughput. It delivers horizontal read scaling, read high availability, and predictable write performance, but deliberately accepts manual failover, eventual consistency, incomplete TCP health checks, and periodic CLUSTER maintenance. The full write-up is published on the Space City Dev Blog.",
+    },
+    role: "Author",
+    date: "2026",
+    url: "https://blog.space-city.dev/posts/2026/scaling-postgres-reads/",
+    photo: { large: postgresReadsImage, small: postgresReadsImage },
+  },
   {
     id: 2,
     title: "Medicare Enrollment Dashboard",
@@ -260,6 +345,11 @@ function ProjectDetail() {
           </Link>
 
           <div className="max-w-4xl mx-auto">
+            {project.type && (
+              <span className="inline-block text-xs font-semibold uppercase tracking-wide text-blue-700 bg-blue-50 rounded-full px-3 py-1 mb-4">
+                {project.type}
+              </span>
+            )}
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               {project.title}
             </h1>
@@ -281,7 +371,8 @@ function ProjectDetail() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1 text-blue-600 hover:text-blue-700"
                 >
-                  Visit Site <Icons.ExternalLink size={16} />
+                  {project.type === "Blog Post" ? "Read Post" : "Visit Site"}{" "}
+                  <Icons.ExternalLink size={16} />
                 </a>
               </div>
             </div>
